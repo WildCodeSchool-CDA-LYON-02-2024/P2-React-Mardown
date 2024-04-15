@@ -3,35 +3,20 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import { useTheme } from "./hooks/useTheme.jsx";
-import FormComponent from "./components/FormComponent.jsx";
+import { Form } from "./stories/Form.jsx";
 
 function App() {
     const [ count, setCount ] = useState(0)
     const { theme, toggleTheme } = useTheme();
   return (
       <div>
-          <FormComponent theme={ theme } toggleTheme={ (val) => toggleTheme(val) } />
-          <nav>
-              <button onClick={() => toggleTheme({
-                  backgroundColor: "#FFF",
-                  textColor: "#000",
-                  linkColor: "#00F",
-                  codeBackgroundColor: "#C9C9C9",
-              })}>Light
-              </button>
-              <button onClick={() => toggleTheme({
-                  backgroundColor: "#000",
-                  textColor: "#FFF",
-                  linkColor: "#f38408",
-                  codeBackgroundColor: "#ba0505",
-              })}>Dark</button>
-              <button onClick={() => toggleTheme({
-                  backgroundColor: "#5e00ff",
-                  textColor: "#000",
-                  linkColor: "#cbff00",
-                  codeBackgroundColor: "#00ffa1",
-              })}>Purple</button>
-          </nav>
+          <Form
+              backgroundColor={ theme.backgroundColor }
+              textColor={ theme.textColor }
+              linkColor={ theme.linkColor }
+              codeBackgroundColor={ theme.codeBackgroundColor }
+              toggleTheme={ (val) => toggleTheme(val) } />
+          {/*<SidebarLayout />*/}
           <textarea style={{backgroundColor: theme.backgroundColor, color: theme.textColor}}></textarea><br/>
           <code style={{backgroundColor: theme.codeBackgroundColor}}>git pull();</code>
           <div>

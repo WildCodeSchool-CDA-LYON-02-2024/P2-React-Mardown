@@ -3,12 +3,14 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import { useTheme } from "./hooks/useTheme.jsx";
+import FormComponent from "./components/FormComponent.jsx";
 
 function App() {
     const [ count, setCount ] = useState(0)
     const { theme, toggleTheme } = useTheme();
   return (
       <div>
+          <FormComponent theme={ theme } toggleTheme={ (val) => toggleTheme(val) } />
           <nav>
               <button onClick={() => toggleTheme({
                   backgroundColor: "#FFF",

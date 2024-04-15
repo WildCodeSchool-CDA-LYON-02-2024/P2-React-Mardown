@@ -2,169 +2,172 @@ import { createElement } from "react";
 import { joinBase } from "./Helpers";
 
 class Renderer {
-    /**
-     * TODO:
-     *  - Find how to call renderer without out react systems
-     *  - Find how to passed markdown to html
-     *  - Change hot reload state of html component
-     */
-    constructor(options = {}) {
-        this.elId = 0;
-        this.options = options;
-        // const { renderer } = options;
-        // if (renderer && typeof renderer === 'object') {
-        //     Object.entries(renderer).forEach(([key, value]) => {
-        //         const rendererName = key;
-        //         const rendererFunction = value;
+  /**
+   * TODO:
+   *  - Find how to call renderer without out react systems
+   *  - Find how to passed markdown to html
+   *  - Change hot reload state of html component
+   */
+  constructor(options = {}) {
+    this.elId = 0;
+    this.options = options;
+    // const { renderer } = options;
+    // if (renderer && typeof renderer === 'object') {
+    //     Object.entries(renderer).forEach(([key, value]) => {
+    //         const rendererName = key;
+    //         const rendererFunction = value;
 
-        //         if (!this[rendererName] || rendererName === 'elementId' || typeof rendererFunction !== 'function') {
-        //             return;
-        //         }
+    //         if (!this[rendererName] || rendererName === 'elementId' || typeof rendererFunction !== 'function') {
+    //             return;
+    //         }
 
-        //         // const originalFunction = this[rendererName];
+    //         // const originalFunction = this[rendererName];
 
-        //         this[rendererName] = (...args) => {
-        //             this.incrementElId();
-        //             return rendererFunction.apply(this, args);
-        //         }
-        //     })
-        // }
-        this.init();
-    }
-    init() {
-        if (this.options.renderer && typeof renderer === 'object') {
-            Object.entries(this.options.renderer).forEach(([key, value]) => {
-                const rendererName = key;
-                const rendererFunction = value;
+    //         this[rendererName] = (...args) => {
+    //             this.incrementElId();
+    //             return rendererFunction.apply(this, args);
+    //         }
+    //     })
+    // }
+    this.init();
+  }
+  init() {
+    if (this.options.renderer && typeof renderer === "object") {
+      Object.entries(this.options.renderer).forEach(([key, value]) => {
+        const rendererName = key;
+        const rendererFunction = value;
 
-                if (!this[rendererName] || rendererName === 'elementId' || typeof rendererFunction !== 'function') {
-                    return;
-                }
-
-                // const originalFunction = this[rendererName];
-
-                this[rendererName] = (...args) => {
-                    this.incrementElId();
-                    return rendererFunction.apply(this, args);
-                }
-            })
+        if (
+          !this[rendererName] ||
+          rendererName === "elementId" ||
+          typeof rendererFunction !== "function"
+        ) {
+          return;
         }
-    }
 
-    h(el, children = null, props = {}) {
-        const elProps = {key: `react-md-${this.elementId}`};
+        // const originalFunction = this[rendererName];
 
-        this.incrementElId();
-        return createElement(el, { ...props, ...elProps }, children);
+        this[rendererName] = (...args) => {
+          this.incrementElId();
+          return rendererFunction.apply(this, args);
+        };
+      });
     }
+  }
 
-    incrementElId() {
-        this.elId += 1;
-    }
+  h(el, children = null, props = {}) {
+    const elProps = { key: `react-md-${this.elementId}` };
 
-    get elementId() {
-        return this.elId;
-    }
+    this.incrementElId();
+    return createElement(el, { ...props, ...elProps }, children);
+  }
 
-    heading(children, level) {
-        return this.h(`h${level}`, children);
-    }
+  incrementElId() {
+    this.elId += 1;
+  }
 
-    paragraph(children) {
-        return this.h('p', children);
-    }
+  get elementId() {
+    return this.elId;
+  }
 
-    link(href, text) {
-        const url = joinBase(href, this.options.baseURL);
-        const target = this.options.openLinksInNewTab ? '_blank' : null;
-        return this.h('a', text, { href: url, target });
-    }
+  heading(children, level) {
+    return this.h(`h${level}`, children);
+  }
 
-    image(src, alt, title = null) {
-        const url = joinBase(src, this.options.baseURL);
-        return this.h('img', null, { src: url, alt, title });
-    }
+  paragraph(children) {
+    return this.h("p", children);
+  }
 
-    codespan(code, lang = null) {
-        const className = lang ? `${this.options.langPrefix}${lang}` : null;
-        return this.h('code', code, { className });
-    }
+  link(href, text) {
+    const url = joinBase(href, this.options.baseURL);
+    const target = this.options.openLinksInNewTab ? "_blank" : null;
+    return this.h("a", text, { href: url, target });
+  }
 
-    code(code, lang) {
-        return this.h('pre', this.codespan(code, lang));
-    }
+  image(src, alt, title = null) {
+    const url = joinBase(src, this.options.baseURL);
+    return this.h("img", null, { src: url, alt, title });
+  }
 
-    blockquote(children) {
-        return this.h('blockquote', children);
-    }
+  codespan(code, lang = null) {
+    const className = lang ? `${this.options.langPrefix}${lang}` : null;
+    return this.h("code", code, { className });
+  }
 
-    list(children, ordered) {
-        return this.h(ordered ? 'ol' : 'ul', children);
-    }
+  code(code, lang) {
+    return this.h("pre", this.codespan(code, lang));
+  }
 
-    listItem(children) {
-        return this.h('li', children);
-    }
+  blockquote(children) {
+    return this.h("blockquote", children);
+  }
 
-    checkbox(checked) {
-        return this.h('input', null, { type: 'checkbox', disabled: true, checked });
-    }
+  list(children, ordered) {
+    return this.h(ordered ? "ol" : "ul", children);
+  }
 
-    table(children) {
-        return this.h('table', children);
-    }
+  listItem(children) {
+    return this.h("li", children);
+  }
 
-    tableHeader(children) {
-        return this.h('thead', children);
-    }
+  checkbox(checked) {
+    return this.h("input", null, { type: "checkbox", disabled: true, checked });
+  }
 
-    tableBody(children) {
-        return this.h('tbody', children)
-    }
+  table(children) {
+    return this.h("table", children);
+  }
 
-    tableRow(children) {
-        return this.h('tr', children);
-    }
-    /** 
-     * TODO Say how to construct it 
-     * | VAL | VAL 2 |
-     * |:---:|:-----:|
-     * | VAL | VAL 2 |
-     */
-    tableCell(children, flags) {
-        const tag = flags.header ? 'th' : 'td';
-        /** TODO how to say if table is called inside markdown ??? */
-        return this.h(tag, children, { align: flags.align })
-    }
+  tableHeader(children) {
+    return this.h("thead", children);
+  }
 
-    strong(children) {
-        return this.h('strong', children);
-    }
+  tableBody(children) {
+    return this.h("tbody", children);
+  }
 
-    em(children) {
-        return this.h('em', children);
-    }
+  tableRow(children) {
+    return this.h("tr", children);
+  }
+  /**
+   * TODO Say how to construct it
+   * | VAL | VAL 2 |
+   * |:---:|:-----:|
+   * | VAL | VAL 2 |
+   */
+  tableCell(children, flags) {
+    const tag = flags.header ? "th" : "td";
+    /** TODO how to say if table is called inside markdown ??? */
+    return this.h(tag, children, { align: flags.align });
+  }
 
-    del(children) {
-        return this.h('del', children);
-    }
+  strong(children) {
+    return this.h("strong", children);
+  }
 
-    text(text) {
-        return text;
-    }
+  em(children) {
+    return this.h("em", children);
+  }
 
-    html(html) {
-        return html;
-    }
+  del(children) {
+    return this.h("del", children);
+  }
 
-    hr() {
-        return this.h('hr');
-    }
+  text(text) {
+    return text;
+  }
 
-    br() {
-        return this.h('br');
-    }
+  html(html) {
+    return html;
+  }
 
+  hr() {
+    return this.h("hr");
+  }
+
+  br() {
+    return this.h("br");
+  }
 }
 
 export default Renderer;

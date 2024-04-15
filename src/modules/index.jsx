@@ -1,48 +1,83 @@
 const arrayMarkdown = [
+    /** TITLE */
     {
-        id: 1,
         val: '#',
+        child: null,
         htmlElement: '<h1>'
     },
     {
-        id: 1,
-        val: '#',
-        htmlElement: '<h1>'
-    },
-    {
-        id: 2,
         val: '##',
-        htmlElement: '<h2>'
+        startHtmlElement: '<h2>',
+        child: null,
+        endHtmlElement: '</h2>'
     },
     {
-        id: 3,
         val: '###',
-        htmlElement: '<h3>'
+        startHtmlElement: '<h3>',
+        child: null,
+        endHtmlElement: '</h3>'
     },
     {
-        id: 4,
         val: '####',
-        htmlElement: '<h3>'
+        startHtmlElement: '<h4>',
+        child: null,
+        endHtmlElement: '</h4>'
     },
     {
-        id: 5,
         val: '#####',
-        htmlElement: '<h3>'
+        startHtmlElement: '<h5>',
+        child: null,
+        endHtmlElement: '</h5>'
     },
     {
-        id: 6,
         val: '######',
-        htmlElement: '<h3>'
+        startHtmlElement: '<h6>',
+        child: null,
+        endHtmlElement: '</h6>'
+    },
+    /** LISTS */
+    {
+        val: '-',
+        startHtmlElement: '<ul>',
+        child: [{
+            startHtmlElement: '<li>',
+            endHtmlElement: '</li>'
+        }],
+        endHtmlElement: '</ul>'
+    },
+    {
+        val: '[0-9]',
+        startHtmlElement: '<ol>',
+        child: [{
+            startHtmlElement: '<li>',
+            endHtmlElement: '</li>'
+        }],
+        endHtmlElement: '</ol>'
     }
 ];
 
 export const verifyNullContent = content => content !== null;
+export function createList(mdArray, value, elements) {
+    return {mdArray, value, elements};
+}
 export const runMarkdown = content => {
+    let j = 0;
+    let elements = [];
     for(let i = 0; i <= content.length; i++) {
-        for (let i = 0; i <= arrayMarkdown.length; i++) {
-            if(new RegExp(`/${arrayMarkdown[i].val}/`).test(content[i])) {
+        do{
+            if(new RegExp(arrayMarkdown[j].val).test(content[i])) {
                 console.log(content[i]);
+                if(arrayMarkdown[j].htmlElement !== '<ul>' || arrayMarkdown[j].htmlElement !== '<ol>')
+                    elements.push({
+                        start: arrayMarkdown[j].startHtmlElement,
+                        val: content[i],
+                        end: arrayMarkdown[j].endHtmlElement
+                    })
+                else
+                    createList(arrayMarkdown, content[i], elements);
             }
-        }
+            j += 1;
+        } while(j <= arrayMarkdown.length);
     }
+    return elements;
 }

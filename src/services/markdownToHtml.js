@@ -1,4 +1,5 @@
 import { createHeadings, createParagraph } from "../modules/text.js";
+// import { createBold, createItalic } from "../modules/inline.js";
 
 /**
  * TODO:
@@ -6,12 +7,12 @@ import { createHeadings, createParagraph } from "../modules/text.js";
  *    - Elements:
  *      - Titre DONE !!!!!!!!!!!! ;D
  *      - Sous-titre (H2, H3, H4, H5, H6) DONE !!!!!!!!!!!! ;D
- *      - Texte -> Return <p>
- *      - Texte en gras
- *      - Liste à puces
- *      - Liste numérotées
+ *      - Texte -> Return <p> DONE !!!!!!!!!!!!! ;D
+ *      - Texte en gras(** | __)
+ *      - Liste à puces(*|-)
+ *      - Liste numérotées(1..9)
  *      - Images
- *      - Liens
+ *      - Liens !(https://localhost:4200/)[mon liens] => <a href="https://localhost:4200/">mon liens</a>
  *    - Fonctionnalité interne (BONUS):
  *      - Import / Export .md
  *      - Tableaux

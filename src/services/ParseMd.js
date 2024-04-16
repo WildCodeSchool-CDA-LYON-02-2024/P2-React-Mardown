@@ -1,9 +1,5 @@
-import { verifyNullContent, runMarkdown } from "../modules";
-
+// Get all elements in index.jsx
 export function parseMd(content = null) {
-  let newStr = "";
-  if (verifyNullContent(content)) {
-    runMarkdown(content);
-  }
-  return newStr;
+  console.log(content);
+  return content;
 }

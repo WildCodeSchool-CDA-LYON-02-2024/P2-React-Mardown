@@ -5,9 +5,14 @@ class Parser {
     this.renderer = renderer; /** !!! Faire gaffe au renderer de react */
   }
 
-  parse(tokens) {
-    return tokens.map((token) => {
+  parse(tokens /** object attempted */) {
+    console.log("token:", tokens);
+    return tokens.split('').map((token) => {
+      /**
+       * Switch sur le type du token
+       */
       switch (token.type) {
+        // Si le type est égal à 
         case "space": {
           return null;
         }

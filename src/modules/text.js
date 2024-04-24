@@ -27,7 +27,7 @@ export function createHeadings(array) {
 export function createParagraph(array) {
   let newElement = "";
   array.forEach((line) => {
-    newElement += `<p>${ line }</p>`;
+    newElement += `<p>${line}</p>`;
   });
   return newElement;
 }

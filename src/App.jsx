@@ -2,10 +2,9 @@ import "./App.css";
 import RenderComponent from "./components/RenderComponent";
 
 function App() {
-
   return (
     <>
-     <RenderComponent />
+      <RenderComponent />
     </>
   );
 }

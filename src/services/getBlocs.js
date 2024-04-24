@@ -1,4 +1,4 @@
- export function getBlocs(str) {
+export function getBlocs(str) {
   const blocs = [];
   let bloc = str.split("\n\n");
 

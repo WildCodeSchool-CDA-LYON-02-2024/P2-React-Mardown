@@ -1,7 +1,8 @@
-export function getBlocs(str) {
+export function getBlocs(markdown) {
   const blocs = [];
-  let bloc = str.split("\n\n");
+  const bloc = markdown.split("\n\n");
 
+  // get blocs from markdown
   for (let i = 0; i < bloc.length; i++) {
     if (bloc[i].trim() !== "") {
       blocs.push(bloc[i].trim());
@@ -11,6 +12,6 @@ export function getBlocs(str) {
 }
 
 const text =
-  "Fournir une documentation\n\n claire et des exemples de code pour\n esfiuhsiufhsdigfyqgfiyqgfiygiydgqfiqgdiyqfgqiudfgiqgdfiqudgfiudqg\n\n\n\n de votre bibliothèque.\n\nFournir un site d'exemple et un StoryBook pour \n\nprésenter les fonctionnalités de la bibliothèque.";
+  "Fournir une documentation\n\n claire et des exemples de code pour\nesfiuhsiufhsdigfyqgfiyqgfiygiydgqfiqgdiyqfgqiudfgiqgdfiqudgfiudqg\n\n\n\n de votre bibliothèque.\n\nFournir un site d'exemple et un StoryBook pour \n\nprésenter les fonctionnalités de la bibliothèque.";
 
 console.log(getBlocs(text));

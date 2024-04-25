@@ -6,17 +6,16 @@ export function createHeadings(lines) {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    let level = 0; // Réinitialiser le niveau de titre pour chaque ligne
+    let level = 0; //reinitialise  niveau de titre pr chaque ligne
 
-    // Compter le nombre de signes '#' au début de la ligne pour déterminer le niveau de titre
+    // compte nbr de '#' au début de la ligne pr niveau titre
     while (line[level] === "#") {
       level++;
     }
 
     if (level > 0 && level <= 6) {
-      // Exclure les signes '#' et les espaces pour obtenir le texte du titre
+      // exclue  '#' etespaces pr obtenir le texte du titre
       const textContent = line.slice(level).trim();
-      // Créer la balise HTML en fonction du niveau de titre
       newElement += `<h${level}>${textContent}</h${level}>\n`;
     }
   }
@@ -36,16 +35,16 @@ export function createParagraph(lines) {
 
 export function createUnorderedList(lines, index) {
   let newElement = "<ul>";
-
+  console.log(index, "in UL");
   // console.log("LINES", lines);
-  let listLines = []; // pour stocker les lignes de la liste en cours
+  let listLines = []; 
   let i = index;
 
   while (
+    i < lines.length &&
     (lines[i].startsWith("- ") ||
       lines[i].startsWith("* ") ||
-      lines[i].startsWith("+ ")) &&
-    i < lines.length
+      lines[i].startsWith("+ "))
   ) {
     const line = lines[i].trim();
 
@@ -59,34 +58,34 @@ export function createUnorderedList(lines, index) {
     i++;
   }
 
-  newElement += "\n</ul>\n"; // Ajoute un retour à la ligne après la fermeture de la balise <ul>
+  newElement += "\n</ul>\n"; 
   return [newElement, i - 1];
 }
 
 export function createOrderedList(lines, index) {
   let newElement = "<ol>";
+  //console.log("LINES", lines);
+  console.log(index, "in OL");
+
   let listLines = [];
   let i = index;
-  
-  // Utilisation d'une boucle while pour parcourir les lignes jusqu'à ce qu'une ligne non conforme soit rencontrée ou jusqu'à la fin des lignes
+
+  //  parcours lignes jusqu'à  ligne non conforme rencontrée ou jusqu'à fin  lignes
   while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
     const line = lines[i].trim();
-    listLines.push(line); // Ajoute la ligne actuelle à la liste des lignes de la liste ordonnée
+    listLines.push(line);
 
-    // Vérifie si la prochaine ligne ne commence pas par le même chiffre suivi d'un point et d'un espace
-    if (i === lines.length - 1 || (/^\d+\.\s/.test(lines[i + 1]))) {
-      // Crée la liste ordonnée avec les lignes accumulées
+    // verif si  prochaine ligne commence pas par  même chiffre point et  espace
+    if (i === lines.length - 1 || /^\d+\.\s/.test(lines[i])) {
       newElement += createListItems(listLines);
-      listLines = []; // Réinitialise la liste des lignes accumulées
+      listLines = [];
     }
-
-    i++; // Incrémente l'index pour passer à la prochaine ligne
+    i++; 
   }
 
-  newElement += "\n</ol>"; // Ajoute la balise de fermeture </ol> après la fin de la liste ordonnée
-  return [newElement, i - 1]; // Retourne l'élément HTML de la liste ordonnée et l'index de la dernière ligne traitée
+  newElement += "\n</ol>\n"; 
+  return [newElement, i - 1]; 
 }
-
 
 function createListItems(lines) {
   let listItems = "";

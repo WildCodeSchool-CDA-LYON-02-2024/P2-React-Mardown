@@ -2,7 +2,7 @@ import {
   createHeadings,
   createParagraph,
   createUnorderedList,
-    createOrderedList,
+  createOrderedList,
 } from "../modules/text.js";
 import { getLine } from "./getLine.js";
 // import { createBold, createItalic } from "../modules/inline.js";
@@ -90,13 +90,18 @@ const markdownToHtml = (markdown) => {
         html += liBlock;
         i = index;
         break;
-      case /^[0-9]+.\s/.test(lines):
-        var [olBlock, olIndex] = createOrderedList(lines, i);
-        html += olBlock;
-        i = olIndex;
-        break;
       default:
-        html += createParagraph([line]);
+        if (
+          /^[0-9]+.\s/.test(line) &&
+          line.charAt(0) === /^[0-9]+.\s/.exec(line)[0].charAt(0)
+        ) {
+          var [olBlock, olIndex] = createOrderedList(lines, i);
+          console.log(`${olIndex} / ${lines.length}`, "INDEXOL");
+          html += olBlock;
+          i = olIndex;
+        } else {
+          html += createParagraph([line]);
+        }
         break;
     }
   }
@@ -114,7 +119,7 @@ const markdownToHtml = (markdown) => {
 // const ordredlist =
 //   "1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk";
 const text =
-  "###### tatatatata totototo\n\n1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk\ntatatatata# totototo";
+  "###### tatatatata totototo\n\n* hksdgksdgfkhsdgfksdgfk\n* kffkdjglfdgjdfl\n* hkdsghdsgfhk\ntatatatata# totot\n\n1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk\ngdfgsdjhdfgjfdjh\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg";
 
 // console.log(markdownToHtml(titre));
 // console.log(markdownToHtml(paragraphe));

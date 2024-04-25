@@ -1,4 +1,10 @@
-import { createHeadings, createLink, createParagraph } from "../modules/text.js";
+import {
+  createHeadings,
+  createParagraph,
+  createUnorderedList,
+  createOrderedList, createLink
+} from "../modules/text.js";
+import { getLine } from "./getLine.js";
 // import { createBold, createItalic } from "../modules/inline.js";
 
 /**
@@ -23,71 +29,116 @@ import { createHeadings, createLink, createParagraph } from "../modules/text.js"
  * @returns {*[]}
  */
 
-export const runnerMarkdown = markdownContent => {
-    let arrayElements = [];
-    let element = {
-        value: ''
-    };
-    let i = 0;
-    let j = 0;
-    if(!new RegExp(/\n/).test(markdownContent)) {
-        while (i < markdownContent.length && new RegExp(/[*]|#|[0-9]|-|\s|[A-Za-z]/).test(markdownContent[i])) {
-            if(new RegExp(/[*]|#|-|[0-9]/).test(markdownContent[i])) {
-                j += 1;
-                switch (markdownContent[i]) {
-                    case '-':
-                        element.type = 'unorderedList';
-                        element.start = i + 2;
-                        break;
-                    case '#':
-                        element.type = 'title';
-                        element.start = i + 2;
-                        break;
-                    default:
-                        break;
-                }
-            } else {
-                if(new RegExp(/^[A-Za-z\s]/).test(markdownContent[i]) && i >= element.start) {
-                    element.value += i !== 0 ? markdownContent[i] : '';
-                    element.value.trimStart();
-                    element.end = j > i ? j : markdownContent.length;
-                }
-            }
-            i+= 1;
-        }
-        arrayElements.push(element);
-        for (const arrayElementValue of arrayElements) {
-            arrayElementValue.value.trimStart();
-        }
-        return arrayElements;
-    } else {
-        /** Cas saut de lignes
-         * HERE...
-         */
-    }
-};
+// export const runnerMarkdown = markdownContent => {
+//     let arrayElements = [];
+//     let element = {
+//         value: ''
+//     };
+//     let i = 0;
+//     let j = 0;
+//     if(!new RegExp(/\n/).test(markdownContent)) {
+//         while (i < markdownContent.length && new RegExp(/[*]|#|[0-9]|-|\s|[A-Za-z]/).test(markdownContent[i])) {
+//             if(new RegExp(/[*]|#|-|[0-9]/).test(markdownContent[i])) {
+//                 j += 1;
+//                 switch (markdownContent[i]) {
+//                     case '-':
+//                         element.type = 'unorderedList';
+//                         element.start = i + 2;
+//                         break;
+//                     case '#':
+//                         element.type = 'title';
+//                         element.start = i + 2;
+//                         break;
+//                     default:
+//                         break;
+//                 }
+//             } else {
+//                 if(new RegExp(/^[A-Za-z\s]/).test(markdownContent[i]) && i >= element.start) {
+//                     element.value += i !== 0 ? markdownContent[i] : '';
+//                     element.value.trimStart();
+//                     element.end = j > i ? j : markdownContent.length;
+//                 }
+//             }
+//             i+= 1;
+//         }
+//         arrayElements.push(element);
+//         for (const arrayElementValue of arrayElements) {
+//             arrayElementValue.value.trimStart();
+//         }
+//         return arrayElements;
+//     } else {
+//         /** Cas saut de lignes
+//          * HERE...
+//          */
+//     }
+// };
 
 const markdownToHtml = (markdown) => {
   let html = "";
-  let arrayMarkdown = markdown.split("\n");
-  switch (markdown.charAt(0)) {
-    case '#':
-      html += createHeadings(arrayMarkdown)
-    break;
-    case "[":
-      html += createLink(arrayMarkdown);
-      break;
-    default:
-      html += createParagraph(arrayMarkdown);
-    break;
+  const lines = getLine(markdown);
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    switch (line.charAt(0)) {
+      case "#":
+        html += createHeadings([line]);
+        break;
+      case "*":
+      case "-":
+      case "+":
+        var [liBlock, index] = createUnorderedList(lines, i);
+        html += liBlock;
+        i = index;
+        break;
+      case "[":
+        html += createLink([line]);
+        break;
+      default:
+        if (
+          /^[0-9]+.\s/.test(line) &&
+          line.charAt(0) === /^[0-9]+.\s/.exec(line)[0].charAt(0)
+        ) {
+          var [olBlock, olIndex] = createOrderedList(lines, i);
+          console.log(`${olIndex} / ${lines.length}`, "INDEXOL");
+          html += olBlock;
+          i = olIndex;
+        } else {
+          html += createParagraph([line]);
+        }
+        break;
+    }
   }
-  // return arrayMarkdown.join(""); // Retourner le tableau sous format de string
+
   return html;
 };
 
+/**
+ * TEST Links STARTS
+ */
 const link = "[Link text Here](https://link-url-here.org)"
 const notLink = "[Link text Here] (https://link-url-here.org)"
 console.log("link", markdownToHtml(link));
 console.log("notLink", markdownToHtml(notLink));
+/**
+ * TEST Links ENDS
+ */
+
+//   const text = "###### tatatatata totototo\n\n+ hksdgksdgfkhsdgfksdgfk\n+ kffkdjglfdgjdfl\n+ hkdsghdsgfhk\n\ntatatatata# totototo";
+
+//   console.log(markdownToHtml(text));
+
+// const titre = "###### tatatatata totototo";
+// const paragraphe = "tatatatata# totototo";
+// const list = "- hksdgksdgfkhsdgfksdgfk\n- kffkdjglfdgjdfl\n- hkdsghdsgfhk";
+// const ordredlist =
+//   "1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk";
+const text =
+  "###### tatatatata totototo\n\n* hksdgksdgfkhsdgfksdgfk\n* kffkdjglfdgjdfl\n* hkdsghdsgfhk\ntatatatata# totot\n\n1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk\ngdfgsdjhdfgjfdjh\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg";
+
+// console.log(markdownToHtml(titre));
+// console.log(markdownToHtml(paragraphe));
+// console.log(markdownToHtml(list));
+// console.log(markdownToHtml(ordredlist));
+console.log(markdownToHtml(text));
 
 export default markdownToHtml;

@@ -1,19 +1,19 @@
-import { useEffect } from "react";
+import  { useEffect } from "react";
 import { useTheme } from "../hooks/useTheme.jsx";
-import { getLines } from "../services/getLine.js";
-import { createHeadings } from "../modules/text.js";
 import '../assets/markdown.component.css';
+import markdownToHtml from "../services/markdownToHtml.js";
 
-export function MarkdownComponent({value, setMarkdown}) {
+export function MarkdownComponent({val, setMarkdown, setHtml, html}) {
     const {theme} = useTheme();
     useEffect(() => {
-        console.log(createHeadings(getLines(value)));
-    }, [value]);
+        setHtml(markdownToHtml(val));
+        console.log(html);
+    }, [val, html]);
     return (
         <textarea
             style={{backgroundColor: theme.backgroundColor, color: theme.textColor}}
             onChange={(e) => setMarkdown(e.target.value)}
-            value={ value }
+            value={ val }
         ></textarea>
     )
 }

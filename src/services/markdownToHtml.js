@@ -30,7 +30,7 @@ const markdownToHtml = (markdown) => {
         switch (line.charAt(0)) {
             case "#":
                 html += createHeadings([line]);
-                break;
+            break;
             case "*":
             case "-":
             case "+":
@@ -47,7 +47,6 @@ const markdownToHtml = (markdown) => {
                     line.charAt(0) === /^[0-9]+.\s/.exec(line)[0].charAt(0)
                 ) {
                     const [olBlock, olIndex] = createOrderedList(lines, i);
-                    console.log(`${olIndex} / ${lines.length}`, "INDEXOL");
                     html += olBlock;
                     i = olIndex;
                 } else {

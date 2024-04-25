@@ -27,7 +27,7 @@ export function createLink(lines) {
   let link = "";
 
   lines.map(line => {
-    const regexMatchLink = line.match(/\[(.*?)\]\((.*?)\)/);
+    const regexMatchLink = line.match(/\[(.*?)\\]\((.*?)\)/);
     if (regexMatchLink) {
       const linkText = regexMatchLink[1];
       const url = regexMatchLink[2];
@@ -56,12 +56,13 @@ export function createUnorderedList(lines, index) {
 
   while (
     i < lines.length &&
-    (lines[i].startsWith("- ") ||
-      lines[i].startsWith("* ") ||
-      lines[i].startsWith("+ "))
+    (
+        lines[i].startsWith("- ") ||
+        lines[i].startsWith("-") ||
+        lines[i].startsWith("* ") ||
+        lines[i].startsWith("+ "))
   ) {
-    const line = lines[i].trim();
-
+    const line = lines[i].replace(/^[-*]\s/, "").trim();
     listLines.push(line);
     // vérif si prochaine ligne pas une liste ou si dernière ligne
     if (i === lines.length - 1 || lines[i + 1].charAt(0) !== line.charAt(0)) {

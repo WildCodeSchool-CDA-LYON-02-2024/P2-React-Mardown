@@ -1,5 +1,5 @@
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-import {Form} from "./Form.jsx";
+import { Form } from "../components/Form.jsx";
 import Config from "../config/index.jsx";
 
 export default {

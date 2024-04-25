@@ -1,5 +1,5 @@
 import { getBlocs } from "./getBlocs.js";
-function getLines(markdown) {
+export function getLines(markdown) {
   const blocs = getBlocs(markdown);
   const lines = [];
 

@@ -1,0 +1,6 @@
+:root {
+	--marginAndPadding: 0;
+	--default-font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	--primary-background-color: #242424;
+	--primary-color: #FFFFFF;
+}

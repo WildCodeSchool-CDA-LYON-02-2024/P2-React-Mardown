@@ -28,15 +28,11 @@ export function createLink(array) {
   let link = "";
 
   array.map(line => {
-    // const selectedLine = line;
     const regexMatchLink = line.match(/\[(.*?)\]\((.*?)\)/);
     if (regexMatchLink) {
       const linkText = regexMatchLink[1];
-      console.log("linkText", linkText);
       const url = regexMatchLink[2];
-      console.log("url", url);
       link = `<a href="${url}">${linkText}</a>`;
-      console.log(line);
     } else return link = line;
   })
   return link;

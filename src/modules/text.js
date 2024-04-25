@@ -42,23 +42,26 @@ export function createUnorderedList(lines) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
-    if (
-      line.startsWith("- ") ||
-      line.startsWith("* ") ||
-      line.startsWith("+ ")
-    ) {
+    // if (
+    //   line.startsWith("- ") ||
+    //   line.startsWith("* ") ||
+    //   line.startsWith("+ ")
+    // ) {
+      console.log("AVANT",listLines);
       listLines.push(line);
-
-      // Vérifie si la prochaine ligne n'est pas une liste ou si c'est la dernière ligne
+      console.log("APRES",listLines);
+      
+      // vérif si prochaine ligne pas une liste ou si dernière ligne
       if (i === lines.length - 1 || lines[i + 1].charAt(0) !== line.charAt(0)) {
-        // Crée la liste à partir des lignes accumulées
+        // Crée liste à partir des lignes accumulées
         newElement += createListItems(listLines);
-        listLines = [];
+        // listLines = [];
+        // }
       }
-    }
+      console.log("APRESSSSSSSSSSSSS",listLines);
   }
 
-  newElement += "\n</ul>\n"; // Ajoute un retour à la ligne après la fermeture de la balise <ul>
+  newElement += "\n</ul>"; // Ajoute un retour à la ligne après la fermeture de la balise <ul>
   return newElement;
 }
 
@@ -70,22 +73,22 @@ export function createOrderedList(lines) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
-    // Vérifiez si la ligne commence par un chiffre suivi d'un point
+    // vérif si  ligne commence par un chiffre suivi d'un pointet espace
     if (/^\d+\.\s/.test(line)) {
       if (listLines.length > 0) {
-        // S'il y a des lignes dans listLines, créez la liste ordonnée avec les lignes accumulées
+        // Silignes dans listLines créez liste ordonnée avec les lignes accumulées
         newElement += createListItems(listLines);
         listLines = [];
       }
-      // Ajoutez la ligne courante à listLines
+      // Ajoute la ligne courante à listLines
       listLines.push(line);
     } else {
-      // Si la ligne ne commence pas par un chiffre suivi d'un point et d'un espace,
-      // ajoutez simplement la ligne telle quelle à la balise <ol>
+      // Si ligne commence pas par un chiffre suivi d'un point et d'un espace,
+      // ajoute  la ligne telle quelle à la balise <ol>
       newElement += `<li>${line}</li>`;
     }
 
-    // Vérifiez si la prochaine ligne n'est pas une liste ordonnée ou si c'est la dernière ligne
+    // vérif si prochaine ligne  pas liste ordonnée ou si  dernière ligne
     if (i === lines.length - 1 || !/^\d+\.\s/.test(lines[i + 1])) {
       if (listLines.length > 0) {
         newElement += createListItems(listLines);
@@ -94,7 +97,7 @@ export function createOrderedList(lines) {
     }
   }
 
-  newElement += "\n</ol>\n";
+  newElement += "\n</ol>\n\n";
   return newElement;
 }
 
@@ -104,18 +107,17 @@ function createListItems(lines) {
   for (let line of lines) {
     let listItemContent = line.trim();
     if (/^\d+\./.test(line)) {
-      // Pour les listes ordonnées, retirez le chiffre et le point
+      // retire chiffre et point <ol>
       listItemContent = line.replace(/^\d+\./, "").trim();
     } else if (/^[-*+]\s/.test(line)) {
-      // Pour les listes non ordonnées, retirez le tiret, l'astérisque ou le plus
-      listItemContent = line.replace(/^[-*]\s/, "").trim();
+      // retire le tiret astérisque ou plus <ul>
+      listItemContent = line.replace(/^[-*+]\s/, "").trim();
     }
-    // Ajoutez le contenu de l'élément de liste avec un retour à la ligne et une indentation
+    // ajt contenu de l'élément de liste avec retour à la ligne indentation
     if (listItems === "") {
-      // Si c'est le premier élément de la liste, ajoutez un retour à la ligne avant
+      // si premier élément liste ajt retour à la ligne avant
       listItems += `\n  <li>${listItemContent}</li>`;
     } else {
-      // Sinon, ajoutez normalement
       listItems += `\n  <li>${listItemContent}</li>`;
     }
   }

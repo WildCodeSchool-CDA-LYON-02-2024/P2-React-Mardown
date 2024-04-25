@@ -24,6 +24,21 @@ export function createHeadings(array) {
   return newElement;
 }
 
+export function createLink(array) {
+  array.map(line => {
+    // const selectedLine = line;
+    const matches = line.match(/\[(.*?)\]\((.*?)\)/);
+    if (matches) {
+      const linkText = matches[1];
+      console.log("linkText", linkText);
+      const url = matches[2];
+      console.log("url", url);
+      return `<a href="${url}">${linkText}</a>`;
+    }
+    }
+  )
+}
+
 export function createParagraph(array) {
   let newElement = "";
   array.forEach((line) => {

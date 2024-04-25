@@ -1,4 +1,4 @@
-import { createHeadings, createParagraph } from "../modules/text.js";
+import { createHeadings, createLink, createParagraph } from "../modules/text.js";
 // import { createBold, createItalic } from "../modules/inline.js";
 
 /**
@@ -74,6 +74,9 @@ const markdownToHtml = (markdown) => {
     case '#':
       html += createHeadings(arrayMarkdown)
     break;
+    case "[":
+      html += createLink(arrayMarkdown);
+      break;
     default:
       html += createParagraph(arrayMarkdown);
     break;
@@ -82,10 +85,9 @@ const markdownToHtml = (markdown) => {
   return html;
 };
 
-const titre = "######tatatatata totototo";
-const paragraphe = "tatatatata# totototo";
-
-console.log(markdownToHtml(titre));
-console.log(markdownToHtml(paragraphe));
+const link = "[Link text Here](https://link-url-here.org)"
+const notLink = "[Link text Here] (https://link-url-here.org)"
+console.log(markdownToHtml(link));
+console.log(markdownToHtml(notLink));
 
 export default markdownToHtml;

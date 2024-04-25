@@ -34,72 +34,59 @@ export function createParagraph(lines) {
   return newElement;
 }
 
-export function createUnorderedList(lines) {
+export function createUnorderedList(lines, index) {
   let newElement = "<ul>";
 
+  // console.log("LINES", lines);
   let listLines = []; // pour stocker les lignes de la liste en cours
+  let i = index;
 
-  for (let i = 0; i < lines.length; i++) {
+  while (
+    (lines[i].startsWith("- ") ||
+      lines[i].startsWith("* ") ||
+      lines[i].startsWith("+ ")) &&
+    i < lines.length
+  ) {
     const line = lines[i].trim();
 
-    // if (
-    //   line.startsWith("- ") ||
-    //   line.startsWith("* ") ||
-    //   line.startsWith("+ ")
-    // ) {
-      console.log("AVANT",listLines);
-      listLines.push(line);
-      console.log("APRES",listLines);
-      
-      // vérif si prochaine ligne pas une liste ou si dernière ligne
-      if (i === lines.length - 1 || lines[i + 1].charAt(0) !== line.charAt(0)) {
-        // Crée liste à partir des lignes accumulées
-        newElement += createListItems(listLines);
-        // listLines = [];
-        // }
-      }
-      console.log("APRESSSSSSSSSSSSS",listLines);
+    listLines.push(line);
+    // vérif si prochaine ligne pas une liste ou si dernière ligne
+    if (i === lines.length - 1 || lines[i + 1].charAt(0) !== line.charAt(0)) {
+      // Crée liste à partir des lignes accumulées
+      newElement += createListItems(listLines);
+      listLines = [];
+    }
+    i++;
   }
 
-  newElement += "\n</ul>"; // Ajoute un retour à la ligne après la fermeture de la balise <ul>
-  return newElement;
+  newElement += "\n</ul>\n"; // Ajoute un retour à la ligne après la fermeture de la balise <ul>
+  return [newElement, i - 1];
 }
 
-export function createOrderedList(lines) {
+export function createOrderedList(lines, index) {
   let newElement = "<ol>";
-
   let listLines = [];
-
-  for (let i = 0; i < lines.length; i++) {
+  let i = index;
+  
+  // Utilisation d'une boucle while pour parcourir les lignes jusqu'à ce qu'une ligne non conforme soit rencontrée ou jusqu'à la fin des lignes
+  while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
     const line = lines[i].trim();
+    listLines.push(line); // Ajoute la ligne actuelle à la liste des lignes de la liste ordonnée
 
-    // vérif si  ligne commence par un chiffre suivi d'un pointet espace
-    if (/^\d+\.\s/.test(line)) {
-      if (listLines.length > 0) {
-        // Silignes dans listLines créez liste ordonnée avec les lignes accumulées
-        newElement += createListItems(listLines);
-        listLines = [];
-      }
-      // Ajoute la ligne courante à listLines
-      listLines.push(line);
-    } else {
-      // Si ligne commence pas par un chiffre suivi d'un point et d'un espace,
-      // ajoute  la ligne telle quelle à la balise <ol>
-      newElement += `<li>${line}</li>`;
+    // Vérifie si la prochaine ligne ne commence pas par le même chiffre suivi d'un point et d'un espace
+    if (i === lines.length - 1 || (/^\d+\.\s/.test(lines[i + 1]))) {
+      // Crée la liste ordonnée avec les lignes accumulées
+      newElement += createListItems(listLines);
+      listLines = []; // Réinitialise la liste des lignes accumulées
     }
 
-    // vérif si prochaine ligne  pas liste ordonnée ou si  dernière ligne
-    if (i === lines.length - 1 || !/^\d+\.\s/.test(lines[i + 1])) {
-      if (listLines.length > 0) {
-        newElement += createListItems(listLines);
-        listLines = [];
-      }
-    }
+    i++; // Incrémente l'index pour passer à la prochaine ligne
   }
 
-  newElement += "\n</ol>\n\n";
-  return newElement;
+  newElement += "\n</ol>"; // Ajoute la balise de fermeture </ol> après la fin de la liste ordonnée
+  return [newElement, i - 1]; // Retourne l'élément HTML de la liste ordonnée et l'index de la dernière ligne traitée
 }
+
 
 function createListItems(lines) {
   let listItems = "";
@@ -111,7 +98,7 @@ function createListItems(lines) {
       listItemContent = line.replace(/^\d+\./, "").trim();
     } else if (/^[-*+]\s/.test(line)) {
       // retire le tiret astérisque ou plus <ul>
-      listItemContent = line.replace(/^[-*+]\s/, "").trim();
+      listItemContent = line.replace(/^[-*]\s/, "").trim();
     }
     // ajt contenu de l'élément de liste avec retour à la ligne indentation
     if (listItems === "") {

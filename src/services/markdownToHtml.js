@@ -2,7 +2,7 @@ import {
   createHeadings,
   createParagraph,
   createUnorderedList,
-//   createOrderedList,
+    createOrderedList,
 } from "../modules/text.js";
 import { getLine } from "./getLine.js";
 // import { createBold, createItalic } from "../modules/inline.js";
@@ -74,42 +74,47 @@ import { getLine } from "./getLine.js";
 // };
 
 const markdownToHtml = (markdown) => {
-    let html = "";
-    const lines = getLine(markdown);
-  
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      switch (line.charAt(0)) {
-        case "#":
-          html += createHeadings([line]);
-          break;
-        case "*":
-        case "-":
-        case "+":
-          html += createUnorderedList([line]);
-          // Met à jour l'indice pour sauter les lignes déjà traitées
-       
-          break;
-        default:
-          html += createParagraph([line]);
-          break;
-      }
+  let html = "";
+  const lines = getLine(markdown);
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    switch (line.charAt(0)) {
+      case "#":
+        html += createHeadings([line]);
+        break;
+      case "*":
+      case "-":
+      case "+":
+        var [liBlock, index] = createUnorderedList(lines, i);
+        html += liBlock;
+        i = index;
+        break;
+      case /^[0-9]+.\s/.test(lines):
+        var [olBlock, olIndex] = createOrderedList(lines, i);
+        html += olBlock;
+        i = olIndex;
+        break;
+      default:
+        html += createParagraph([line]);
+        break;
     }
-  
-    return html;
-  };
+  }
+
+  return html;
+};
 
 //   const text = "###### tatatatata totototo\n\n+ hksdgksdgfkhsdgfksdgfk\n+ kffkdjglfdgjdfl\n+ hkdsghdsgfhk\n\ntatatatata# totototo";
-  
+
 //   console.log(markdownToHtml(text));
-  
 
 // const titre = "###### tatatatata totototo";
 // const paragraphe = "tatatatata# totototo";
 // const list = "- hksdgksdgfkhsdgfksdgfk\n- kffkdjglfdgjdfl\n- hkdsghdsgfhk";
 // const ordredlist =
 //   "1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk";
-const text = "###### tatatatata totototo\n\n- hksdgksdgfkhsdgfksdgfk\n- kffkdjglfdgjdfl\n- hkdsghdsgfhk\ntatatatata# totototo"
+const text =
+  "###### tatatatata totototo\n\n1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk\ntatatatata# totototo";
 
 // console.log(markdownToHtml(titre));
 // console.log(markdownToHtml(paragraphe));

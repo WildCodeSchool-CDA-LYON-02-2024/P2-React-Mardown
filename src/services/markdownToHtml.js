@@ -1,7 +1,8 @@
 import {
-  createHeadings,
-  createParagraph,
+    createHeadings, createLink, createOrderedList,
+    createParagraph, createUnorderedList,
 } from "../modules/text.js";
+import { getLine } from "./getLine.js";
 
 /**
  * TODO:
@@ -18,11 +19,6 @@ import {
  *    - Fonctionnalité interne (BONUS):
  *      - Import / Export .md
  *      - Tableaux
- * STR Markdown:
- * --> Compter tous les éléments du markdown
- * --> Récupérer leurs positions + la position du futur élément
- * @param markdownContent
- * @returns {*[]}
  */
 
 const markdownToHtml = (markdown) => {
@@ -38,7 +34,7 @@ const markdownToHtml = (markdown) => {
             case "*":
             case "-":
             case "+":
-                var [liBlock, index] = createUnorderedList(lines, i);
+                const [liBlock, index] = createUnorderedList(lines, i);
                 html += liBlock;
                 i = index;
                 break;
@@ -50,7 +46,7 @@ const markdownToHtml = (markdown) => {
                     /^[0-9]+.\s/.test(line) &&
                     line.charAt(0) === /^[0-9]+.\s/.exec(line)[0].charAt(0)
                 ) {
-                    var [olBlock, olIndex] = createOrderedList(lines, i);
+                    const [olBlock, olIndex] = createOrderedList(lines, i);
                     console.log(`${olIndex} / ${lines.length}`, "INDEXOL");
                     html += olBlock;
                     i = olIndex;

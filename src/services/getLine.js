@@ -1,6 +1,6 @@
 import { getBlocs } from "./getBlocs.js";
 
-function getLines(markdown) {
+export function getLine(markdown) {
   const blocs = getBlocs(markdown);
   const lines = [];
 
@@ -21,4 +21,4 @@ function getLines(markdown) {
 const text =
   "Fournir une documentation\n\n claire et des exemples de code pour\nesfiuhsiufhsdigfyqgfiyqgfiygiydgqfiqgdiyqfgqiudfgiqgdfiqudgfiudqg\n\n\n\n de votre bibliothèque.\n\nFournir un site d'exemple et un StoryBook pourudyugqsduygqsuyfgsdyufguydfg\ndfsdfdsdfsfsfsdsf \n\nprésenter les fonctionnalités de la bibliothèque.";
 
-console.log(getLines(text));
+// console.log(getLine(text));

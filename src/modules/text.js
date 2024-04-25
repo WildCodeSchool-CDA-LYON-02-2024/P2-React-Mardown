@@ -25,18 +25,21 @@ export function createHeadings(array) {
 }
 
 export function createLink(array) {
+  let link = "";
+
   array.map(line => {
     // const selectedLine = line;
-    const matches = line.match(/\[(.*?)\]\((.*?)\)/);
-    if (matches) {
-      const linkText = matches[1];
+    const regexMatchLink = line.match(/\[(.*?)\]\((.*?)\)/);
+    if (regexMatchLink) {
+      const linkText = regexMatchLink[1];
       console.log("linkText", linkText);
-      const url = matches[2];
+      const url = regexMatchLink[2];
       console.log("url", url);
-      return `<a href="${url}">${linkText}</a>`;
-    }
-    }
-  )
+      link = `<a href="${url}">${linkText}</a>`;
+      console.log(line);
+    } else return link = line;
+  })
+  return link;
 }
 
 export function createParagraph(array) {

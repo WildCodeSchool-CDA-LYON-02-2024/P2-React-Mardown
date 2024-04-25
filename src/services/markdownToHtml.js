@@ -87,7 +87,7 @@ const markdownToHtml = (markdown) => {
 
 const link = "[Link text Here](https://link-url-here.org)"
 const notLink = "[Link text Here] (https://link-url-here.org)"
-console.log(markdownToHtml(link));
-console.log(markdownToHtml(notLink));
+console.log("link", markdownToHtml(link));
+console.log("notLink", markdownToHtml(notLink));
 
 export default markdownToHtml;

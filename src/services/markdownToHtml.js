@@ -1,10 +1,7 @@
 import {
-    createHeadings,
-    createParagraph,
-    createUnorderedList,
-    createOrderedList, createLink
+  createHeadings,
+  createParagraph,
 } from "../modules/text.js";
-import { getLine } from "./getLine.js";
 
 /**
  * TODO:
@@ -21,6 +18,11 @@ import { getLine } from "./getLine.js";
  *    - Fonctionnalité interne (BONUS):
  *      - Import / Export .md
  *      - Tableaux
+ * STR Markdown:
+ * --> Compter tous les éléments du markdown
+ * --> Récupérer leurs positions + la position du futur élément
+ * @param markdownContent
+ * @returns {*[]}
  */
 
 const markdownToHtml = (markdown) => {

@@ -23,6 +23,20 @@ export function createHeadings(lines) {
   return newElement;
 }
 
+export function createLink(lines) {
+  let link = "";
+
+  lines.map(line => {
+    const regexMatchLink = line.match(/\[(.*?)\]\((.*?)\)/);
+    if (regexMatchLink) {
+      const linkText = regexMatchLink[1];
+      const url = regexMatchLink[2];
+      link = `<a href="${url}">${linkText}</a>`;
+    } else return link = line;
+  })
+  return link;
+}
+
 export function createParagraph(lines) {
   let newElement = "";
 
@@ -37,7 +51,7 @@ export function createUnorderedList(lines, index) {
   let newElement = "<ul>";
   console.log(index, "in UL");
   // console.log("LINES", lines);
-  let listLines = []; 
+  let listLines = [];
   let i = index;
 
   while (
@@ -58,7 +72,7 @@ export function createUnorderedList(lines, index) {
     i++;
   }
 
-  newElement += "\n</ul>\n"; 
+  newElement += "\n</ul>\n";
   return [newElement, i - 1];
 }
 
@@ -80,11 +94,11 @@ export function createOrderedList(lines, index) {
       newElement += createListItems(listLines);
       listLines = [];
     }
-    i++; 
+    i++;
   }
 
-  newElement += "\n</ol>\n"; 
-  return [newElement, i - 1]; 
+  newElement += "\n</ol>\n";
+  return [newElement, i - 1];
 }
 
 function createListItems(lines) {

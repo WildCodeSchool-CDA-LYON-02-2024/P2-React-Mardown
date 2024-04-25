@@ -2,7 +2,7 @@ import {
   createHeadings,
   createParagraph,
   createUnorderedList,
-  createOrderedList,
+  createOrderedList, createLink
 } from "../modules/text.js";
 import { getLine } from "./getLine.js";
 // import { createBold, createItalic } from "../modules/inline.js";
@@ -90,6 +90,9 @@ const markdownToHtml = (markdown) => {
         html += liBlock;
         i = index;
         break;
+      case "[":
+        html += createLink([line]);
+        break;
       default:
         if (
           /^[0-9]+.\s/.test(line) &&
@@ -108,6 +111,17 @@ const markdownToHtml = (markdown) => {
 
   return html;
 };
+
+/**
+ * TEST Links STARTS
+ */
+const link = "[Link text Here](https://link-url-here.org)"
+const notLink = "[Link text Here] (https://link-url-here.org)"
+console.log("link", markdownToHtml(link));
+console.log("notLink", markdownToHtml(notLink));
+/**
+ * TEST Links ENDS
+ */
 
 //   const text = "###### tatatatata totototo\n\n+ hksdgksdgfkhsdgfksdgfk\n+ kffkdjglfdgjdfl\n+ hkdsghdsgfhk\n\ntatatatata# totototo";
 

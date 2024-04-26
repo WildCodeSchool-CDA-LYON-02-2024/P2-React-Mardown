@@ -1,4 +1,6 @@
-# Iron-Markdown
+# <center><u>Iron-Markdown</u></center>
+
+<img src="src/assets/icons8-markdown-100.png" style="height: 700px; width:700px;"  alt="MD"/>
 
 ## Iron Markdown, a lightweight flavor of Markdown specifically designed for documenting components and functionalities within a React project.
 

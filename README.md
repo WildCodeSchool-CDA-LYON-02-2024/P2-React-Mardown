@@ -6,7 +6,7 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
   - #### [1-1 Initialization](#11-Initialization)
   - #### [1-2 Features](#12-Features)
 - ### [2 Description](#2-Description)
-  - #### [2- 1 Configuration](#21-Configuration)
+  - #### [2-1 Configuration](#21-Configuration)
   - #### [2-2 Constants](#22-Constants)
   - #### [2-3 Hooks](#23-Hooks)
   - #### [2-4 Services](#24-Services)

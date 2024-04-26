@@ -17,7 +17,10 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
 - ### [Versioning](#4-Versioning)
 
 ## 1. Get started
-## 1.1 Initialization
+
+## These hooks are written in Iron Markdown, a lightweight flavor of Markdown specifically designed for documenting components and functionalities within a React project.
+
+### 1.1 Initialization
 ```
 git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 ```
@@ -33,7 +36,13 @@ git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 - **Visual Exploration with StoryBook**: Dive deep into our components with StoryBook, providing a comprehensive visual and interactive exploration experience.
 
 ## 2. Description
+
+Comprehensive overview of the library, covering configuration, themes, features, components, and Markdown content manipulation.
+
 ### 2.1 Configuration
+
+Sets the default theme for the library, as well as the properties that can be configured within that theme.
+
 ``` jsx 
 // themes
 defaultTheme: {
@@ -52,11 +61,16 @@ defaultTheme: {
 
 ### 2.2 Constants
 
+Providing customizable themes to the entire library, allowing users to easily change the appearance of the interface using different predefined configurations.
+
+
 |     name     |                           description                           |
 |:------------:|:---------------------------------------------------------------:|
 | ThemeContext | Our theme context for library that contains defaultTheme config |
 
 ### 2.3 Hooks
+
+These hooks are useful for managing the appearance and behavior of components in a React application, providing Markdown element manipulation and theme management functionality.
 
 #### useMarkdown
 
@@ -74,17 +88,18 @@ defaultTheme: {
 ### 2.4 Services
 
 This section lists several services, each offering a specific functionality related to handling Markdown content.
-| name | parameters | description |
-| :------------: | :--------------------: | :-------------------------------: |
-| getBlocs | { md: markdown value } | analyze blocs of markdown content |
-| getLine | { md: markdown value } | analyze line of markdown content |
-| markdownToHtml | { md: markdown value } | generate markdown content |
+
+|      name      |       parameters       |            description            |
+|:--------------:|:----------------------:|:---------------------------------:|
+|    getBlocs    | { md: markdown value } | analyze blocs of markdown content |
+|    getLine     | { md: markdown value } | analyze line of markdown content  |
+| markdownToHtml | { md: markdown value } |     generate markdown content     |
 
 ### 2.5 Modules
 
-#### Text
-
 This section introduces various modules, each offering functionalities related to text manipulation.
+
+#### Text
 
 |        name         |                 parameters                 |        description         |
 |:-------------------:|:------------------------------------------:|:--------------------------:|
@@ -97,11 +112,15 @@ This section introduces various modules, each offering functionalities related t
 
 ### 2.6 Layouts
 
+Load content written in markdown and convert it to HTML elements.
+
 |      Name      | Paramètres |                                   Description                                    |
 |:--------------:|:----------:|:--------------------------------------------------------------------------------:|
 | RendererLayout |    NONE    | Contains our library that layout can load markdown and read it into html element |
 
 ### 2.7 Components
+
+Allow you to write markdown and transform it into HTML, with features such as changing themes and integrating into a navigation bar.
 
 |       name        |                                                                                                          props                                                                                                           |                                       description                                       |
 |:-----------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|

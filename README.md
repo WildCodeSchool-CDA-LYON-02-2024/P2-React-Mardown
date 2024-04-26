@@ -118,7 +118,7 @@ This section introduces various modules, each offering functionalities related t
 |        Convert style markdown to style element         |  1.2.0   |
 | Convert blockquote markdown to blockquote html element |  1.2.0   |
 
-### 4. Versioning
+## 4. Versioning
 
 | Versions |   Status    |
 |:--------:|:-----------:|

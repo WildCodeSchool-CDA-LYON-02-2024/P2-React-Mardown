@@ -2,19 +2,19 @@
 
 Our Markdown to HTML Components Library provides a solution for converting Markdown text into HTML effortlessly.
 
-- ### [Get started](#1-Get-started)
-  - #### [Initialization](#11-Initialization)
-  - #### [Features](#12-Features)
-- ### [Description](#2-Description)
-  - #### [Configuration](#21-Configuration)
-  - #### [Constants](#22-Constants)
-  - #### [Hooks](#23-Hooks)
-  - #### [Services](#24-Services)
-  - #### [Modules](#25-Modules)
-  - #### [Layouts](#26-Layouts)
-  - #### [Components](#27-Components)
-- ### [Next](#3-Next-features)
-- ### [Versioning](#4-Versioning)
+- ### [1 Get started](#1-Get-started)
+  - #### [1-1 Initialization](#11-Initialization)
+  - #### [1-2 Features](#12-Features)
+- ### [2 Description](#2-Description)
+  - #### [2- 1 Configuration](#21-Configuration)
+  - #### [2-2 Constants](#22-Constants)
+  - #### [2-3 Hooks](#23-Hooks)
+  - #### [2-4 Services](#24-Services)
+  - #### [2-5 Modules](#25-Modules)
+  - #### [2-6 Layouts](#26-Layouts)
+  - #### [2-7 Components](#27-Components)
+- ### [3 Next](#3-Next-features)
+- ### [4 Versioning](#4-Versioning)
 
 ## 1. Get started
 ## 1.1 Initialization

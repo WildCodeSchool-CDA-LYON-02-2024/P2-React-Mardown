@@ -60,9 +60,9 @@ defaultTheme: {
 
 #### useMarkdown
 
-| name | description |
-|:----:|:-----------:|
-|      |             |
+|    name     |                        description                         |
+|:-----------:|:----------------------------------------------------------:|
+| useMarkdown | Our markdown hooks edit state of html and markdown element |
 
 #### useTheme
 

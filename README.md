@@ -27,30 +27,30 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
 [I. Initialization](#Initialization)
 [I. Initialization](#Initialization)
 
-<!--
-    TODO
-        PRINCIPAUX COMPOSANTS MARKDOWNS:
-        - GET STARTED
-        - Installation
-        - Description et Usage :
-            - Composant
-                - Array presentation général nom, type, description => Composants
-            - Modules
-                - Array presentation général nom, type, description => Modules
-            - Services
-                - Array presentation général nom, type, description => Services
-            - Layouts
-                - Array presentation général nom, type, description => Layouts
-            - Hooks
-                - Array presentation général nom, type, description => Hooks
-            - Config
-                - Array presentation général nom, type, description => Config
-            - Constants
-                - Array presentation général nom, type, description => Constants
-
-        - Author
--->
-
+[//]: # (
+TODO 
+    - GET STARTED
+        - Initialization
+        - Features
+    - Description
+        - Components
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Modules
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Services
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Layouts
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Hooks
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Config
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Constants
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+    - Benefits / Avantages
+    - Next features / Prochaines fonctionnalités
+    - Next released / Prochaine versions
+)
 ## Get started
 
 ### Initialization

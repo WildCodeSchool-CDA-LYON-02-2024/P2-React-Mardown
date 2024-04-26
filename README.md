@@ -2,7 +2,7 @@
 
 Our Markdown to HTML Components Library provides a solution for converting Markdown text into HTML effortlessly.
 
-- [I. Get started](#GetStarted)
+- [1. Initialization](#Get-started)
   - [1.1 Initialization](#Initialization)
 
 [I. Initialization](#Initialization)

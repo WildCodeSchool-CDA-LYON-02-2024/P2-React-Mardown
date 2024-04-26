@@ -2,31 +2,21 @@
 
 Our Markdown to HTML Components Library provides a solution for converting Markdown text into HTML effortlessly.
 
-- [I. Get started](#GetStarted)
-  - [1.1 Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
+- [1. Get started](#Get-started)
+    - [1.1 Initialization](#Initialization)
+    - [1.2 Features](#Features)
+- [2. Description](#Description)
+    - [2.1 Configuration](#Configuration)
+    - [2.2 Constants](#Constants)
+    - [2.3 Hooks](#Hooks)
+    - [2.4 Services](#Services)
+    - [2.5 Modules](#Modules)
+    - [2.6 Layouts](#Layouts)
+    - [2.7 Components](#Components)
 
 
-[I. Initialization](#Initialization)
 
-[I. Initialization](#Initialization)
-
-[I. Initialization](#Initialization)
-[I. Initialization](#Initialization)
-[I. Initialization](#Initialization)
-[I. Initialization](#Initialization)
-
+  
 <!--
     TODO
         PRINCIPAUX COMPOSANTS MARKDOWNS:
@@ -51,15 +41,13 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
         - Author
 -->
 
-## Get started
-
-### Initialization
-
+## 1. Get started
+### 1.1 Initialization
 ```
 git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 ```
 
-### Features
+### 1.2 Features
 
 - **Markdown to HTML Conversion**: Easily convert Markdown text into HTML, saving you time and effort.
 - **Support for Standard Markdown Elements**: We support a wide range of standard Markdown elements including headers, lists, links, images, and more.
@@ -69,17 +57,12 @@ git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 - **Interactive Example Site**: Explore the library's features through our interactive example site, showcasing demonstrations of each component in action.
 - **Visual Exploration with StoryBook**: Dive deep into our components with StoryBook, providing a comprehensive visual and interactive exploration experience.
 
-### Usage
+## 2. Description
+### 2.1 Configuration
+### 2.2 Constants
+### 2.3 Hooks
+### 2.4 Services
+### 2.5 Modules
+### 2.6 Layouts
+### 2.7 Components
 
-```js
-import ReactDOM from "react-dom";
-
-const domContainer = document.getElementById("root");
-const root = ReactDOM.createRoot(domContainer);
-root.render(<Markdown># Heading 1</Markdown>);
-```
-
-#### Component Props
-
-- value: text content
-- onClick: assign the conversion category

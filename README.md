@@ -1,4 +1,4 @@
-# <center><u>Iron-Markdown</u></center>
+# <center><u>Iron Markdown</u></center>
 
 <img src="src/assets/icons8-markdown-100.png" style="height: 500px; width:500px;"  alt="MD"/>
 

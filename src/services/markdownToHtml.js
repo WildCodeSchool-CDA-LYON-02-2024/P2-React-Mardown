@@ -34,7 +34,7 @@ const markdownToHtml = (markdown) => {
             case "*":
             case "-":
             case "+":
-                const [liBlock, index] = createUnorderedList(lines, i);
+                var [liBlock, index] = createUnorderedList(lines, i);
                 html += liBlock;
                 i = index;
                 break;

@@ -1,6 +1,6 @@
 # Iron-Markdown
 
-Our Markdown to HTML Components Library provides a solution for converting Markdown text into HTML effortlessly.
+## Iron Markdown, a lightweight flavor of Markdown specifically designed for documenting components and functionalities within a React project.
 
 - ### [Get started](#1-Get-started)
   - #### [Initialization](#11-Initialization)
@@ -17,8 +17,6 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
 - ### [Versioning](#4-Versioning)
 
 ## 1. Get started
-
-## These hooks are written in Iron Markdown, a lightweight flavor of Markdown specifically designed for documenting components and functionalities within a React project.
 
 ### 1.1 Initialization
 ```

@@ -13,32 +13,9 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
   - #### [Modules](#25-Modules)
   - #### [Layouts](#26-Layouts)
   - #### [Components](#27-Components)
+- ### [Next](#3-Next-features)
+- ### [Versioning](#4-Versioning)
 
-
-[//]: # (
-TODO 
-    - GET STARTED
-        - Initialization
-        - Features
-    - Description
-        - Components
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-        - Modules
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-        - Services
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-        - Layouts
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-        - Hooks
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-        - Config
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-        - Constants
-            - General presentation table name, type, description / Tableau presentation général nom, type, description
-    - Benefits / Avantages
-    - Next features / Prochaines fonctionnalités
-    - Next released / Prochaine versions
-)
 ## 1. Get started
 ## 1.1 Initialization
 ```
@@ -74,7 +51,26 @@ defaultTheme: {
 | codeBackgroundColor | string | Change the background-color of textarea element |
 
 ### 2.2 Constants
+
+|     name     |                           description                           |
+|:------------:|:---------------------------------------------------------------:|
+| ThemeContext | Our theme context for library that contains defaultTheme config |
+
 ### 2.3 Hooks
+
+#### useMarkdown
+
+| name | description |
+|:----:|:-----------:|
+|      |             |
+
+#### useTheme
+
+|         name         |                  paramètres                  |                description                |
+|:--------------------:|:--------------------------------------------:|:-----------------------------------------:|
+|       useTheme       |                     NONE                     |  Consume the context of the application   |
+| ThemeContextProvider | { children: Enfant du ThemeContextProvider } | Contains the provider of our theme config |
+
 ### 2.4 Services
 
 This section lists several services, each offering a specific functionality related to handling Markdown content.
@@ -91,7 +87,7 @@ This section lists several services, each offering a specific functionality rela
 This section introduces various modules, each offering functionalities related to text manipulation.
 
 |        name         |                 parameters                 |        description         |
-| :-----------------: | :----------------------------------------: | :------------------------: |
+|:-------------------:|:------------------------------------------:|:--------------------------:|
 |   createHeadings    |           { lines: lines value }           | create titles or subtitles |
 |  createParagraphe   |           { lines: lines value }           |     create paragraphe      |
 |   createListItems   |           { lines: lines value }           |     create list items      |
@@ -101,6 +97,10 @@ This section introduces various modules, each offering functionalities related t
 
 ### 2.6 Layouts
 
+|      Name      | Paramètres |                                   Description                                    |
+|:--------------:|:----------:|:--------------------------------------------------------------------------------:|
+| RendererLayout |    NONE    | Contains our library that layout can load markdown and read it into html element |
+
 ### 2.7 Components
 
 |       name        |                                                                                                          props                                                                                                           |                                       description                                       |
@@ -109,3 +109,18 @@ This section introduces various modules, each offering functionalities related t
 |       Form        | {backgroundColor: Value of theme.backgroundColor, textColor: Value of theme.textColor, linkColor: Value of theme.linkColor, codeBackgroundColor: Value of theme.backgroundColor, toggleTheme: callback for change theme} |        This component change the theme of our library for select specific theme         |
 | MarkdownComponent |             {val: Value of markdown, setMarkdown: CallBack for change the markdown variable of our useMarkdown(), setHtml: CallBack for change the html variable of our useMarkdown(), html: Value of html}              |                              This component write markdown                              |
 |  NavbarComponent  |                                                                    {markdown: Value of markdown, setMarkdown: Callback for change value of markdown}                                                                     |                This component contains all button speed markdown writer                 |
+
+## 3. Next features
+
+|                      New features                      | Versions |
+|:------------------------------------------------------:|:--------:|
+|                     Convert Emoji                      |  1.2.0   |
+|        Convert style markdown to style element         |  1.2.0   |
+| Convert blockquote markdown to blockquote html element |  1.2.0   |
+
+### 4. Versioning
+
+| Versions |   Status    |
+|:--------:|:-----------:|
+|  1.1.0   |   FINISH    |
+|  1.2.0   | IN PROGRESS |

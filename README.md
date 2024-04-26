@@ -39,6 +39,7 @@ TODO
     - Next features / Prochaines fonctionnalités
     - Next released / Prochaine versions
 )
+
 ## 1. Get started
 ## 1.1 Initialization
 ```
@@ -57,6 +58,22 @@ git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 
 ## 2. Description
 ### 2.1 Configuration
+``` jsx 
+// themes
+defaultTheme: {
+    backgroundColor: "string",
+    textColor: "string",
+    linkColor: "string",
+    codeBackgroundColor: "string",
+}
+```
+|      property       |  type  |                   description                   |
+|:-------------------:|:------:|:-----------------------------------------------:|
+|   backgroundColor   | string |       Change the backgroundColor of body        |
+|      textColor      | string |      Change the color of paratext element       |
+|      linkColor      | string |        Change the color of link element         |
+| codeBackgroundColor | string | Change the background-color of textarea element |
+
 ### 2.2 Constants
 ### 2.3 Hooks
 ### 2.4 Services
@@ -64,3 +81,9 @@ git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 ### 2.6 Layouts
 ### 2.7 Components
 
+|       name        |                                                                                                          props                                                                                                           |                                       description                                       |
+|:-----------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
+|      Button       |                                                                                    { label: Button value, onClick: Button callback }                                                                                     | This component is for adding button inside navbar modules and change the markdown value |
+|       Form        | {backgroundColor: Value of theme.backgroundColor, textColor: Value of theme.textColor, linkColor: Value of theme.linkColor, codeBackgroundColor: Value of theme.backgroundColor, toggleTheme: callback for change theme} |        This component change the theme of our library for select specific theme         |
+| MarkdownComponent |             {val: Value of markdown, setMarkdown: CallBack for change the markdown variable of our useMarkdown(), setHtml: CallBack for change the html variable of our useMarkdown(), html: Value of html}              |                              This component write markdown                              |
+|  NavbarComponent  |                                                                    {markdown: Value of markdown, setMarkdown: Callback for change value of markdown}                                                                     |                This component contains all button speed markdown writer                 |

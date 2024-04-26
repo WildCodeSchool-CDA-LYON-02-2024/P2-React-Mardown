@@ -13,7 +13,7 @@ Our Markdown to HTML Components Library provides a solution for converting Markd
   - #### [Modules](#25-Modules)
   - #### [Layouts](#26-Layouts)
   - #### [Components](#27-Components)
-- ### [Next](#3-Next-features)
+- ### [Next features](#3-Next-features)
 - ### [Versioning](#4-Versioning)
 
 ## 1. Get started

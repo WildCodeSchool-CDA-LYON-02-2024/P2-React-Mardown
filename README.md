@@ -2,47 +2,45 @@
 
 Our Markdown to HTML Components Library provides a solution for converting Markdown text into HTML effortlessly.
 
-- [1. Get started](#Get-started)
-    - [1.1 Initialization](#Initialization)
-    - [1.2 Features](#Features)
-- [2. Description](#Description)
-    - [2.1 Configuration](#Configuration)
-    - [2.2 Constants](#Constants)
-    - [2.3 Hooks](#Hooks)
-    - [2.4 Services](#Services)
-    - [2.5 Modules](#Modules)
-    - [2.6 Layouts](#Layouts)
-    - [2.7 Components](#Components)
+- [1. Get started](#1-Get-started)
+    - [1.1 Initialization](#11-Initialization)
+    - [1.2 Features](#12-Features)
+- [2. Description](#2-Description)
+    - [2.1 Configuration](#21-Configuration)
+    - [2.2 Constants](#22-Constants)
+    - [2.3 Hooks](#23-Hooks)
+    - [2.4 Services](#24-Services)
+    - [2.5 Modules](#25-Modules)
+    - [2.6 Layouts](#26-Layouts)
+    - [2.7 Components](#27-Components)
 
 
-
-  
-<!--
-    TODO
-        PRINCIPAUX COMPOSANTS MARKDOWNS:
-        - GET STARTED
-        - Installation
-        - Description et Usage :
-            - Composant
-                - Array presentation général nom, type, description => Composants
-            - Modules
-                - Array presentation général nom, type, description => Modules
-            - Services
-                - Array presentation général nom, type, description => Services
-            - Layouts
-                - Array presentation général nom, type, description => Layouts
-            - Hooks
-                - Array presentation général nom, type, description => Hooks
-            - Config
-                - Array presentation général nom, type, description => Config
-            - Constants
-                - Array presentation général nom, type, description => Constants
-
-        - Author
--->
-
+[//]: # (
+TODO 
+    - GET STARTED
+        - Initialization
+        - Features
+    - Description
+        - Components
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Modules
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Services
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Layouts
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Hooks
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Config
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+        - Constants
+            - General presentation table name, type, description / Tableau presentation général nom, type, description
+    - Benefits / Avantages
+    - Next features / Prochaines fonctionnalités
+    - Next released / Prochaine versions
+)
 ## 1. Get started
-### 1.1 Initialization
+## 1.1 Initialization
 ```
 git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 ```

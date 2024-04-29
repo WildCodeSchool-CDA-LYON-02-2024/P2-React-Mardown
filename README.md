@@ -21,6 +21,7 @@
 ## 1. Get started
 
 ### 1.1 Initialization
+
 ```
 git clone https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown
 ```
@@ -43,7 +44,7 @@ Comprehensive overview of the library, covering configuration, themes, features,
 
 Sets the default theme for the library, as well as the properties that can be configured within that theme.
 
-``` jsx 
+```jsx
 // themes
 defaultTheme: {
     backgroundColor: "string",
@@ -52,8 +53,9 @@ defaultTheme: {
     codeBackgroundColor: "string",
 }
 ```
+
 |      property       |  type  |                   description                   |
-|:-------------------:|:------:|:-----------------------------------------------:|
+| :-----------------: | :----: | :---------------------------------------------: |
 |   backgroundColor   | string |       Change the backgroundColor of body        |
 |      textColor      | string |      Change the color of paratext element       |
 |      linkColor      | string |        Change the color of link element         |
@@ -63,9 +65,8 @@ defaultTheme: {
 
 Providing customizable themes to the entire library, allowing users to easily change the appearance of the interface using different predefined configurations.
 
-
 |     name     |                           description                           |
-|:------------:|:---------------------------------------------------------------:|
+| :----------: | :-------------------------------------------------------------: |
 | ThemeContext | Our theme context for library that contains defaultTheme config |
 
 ### 2.3 Hooks
@@ -75,13 +76,13 @@ These hooks are useful for managing the appearance and behavior of components in
 #### useMarkdown
 
 |    name     |                        description                         |
-|:-----------:|:----------------------------------------------------------:|
+| :---------: | :--------------------------------------------------------: |
 | useMarkdown | Our markdown hooks edit state of html and markdown element |
 
 #### useTheme
 
 |         name         |                  paramètres                  |                description                |
-|:--------------------:|:--------------------------------------------:|:-----------------------------------------:|
+| :------------------: | :------------------------------------------: | :---------------------------------------: |
 |       useTheme       |                     NONE                     |  Consume the context of the application   |
 | ThemeContextProvider | { children: Enfant du ThemeContextProvider } | Contains the provider of our theme config |
 
@@ -90,7 +91,7 @@ These hooks are useful for managing the appearance and behavior of components in
 This section lists several services, each offering a specific functionality related to handling Markdown content.
 
 |      name      |       parameters       |            description            |
-|:--------------:|:----------------------:|:---------------------------------:|
+| :------------: | :--------------------: | :-------------------------------: |
 |    getBlocs    | { md: markdown value } | analyze blocs of markdown content |
 |    getLine     | { md: markdown value } | analyze line of markdown content  |
 | markdownToHtml | { md: markdown value } |     generate markdown content     |
@@ -102,20 +103,19 @@ This section introduces various modules, each offering functionalities related t
 #### Text
 
 |        name         |                 parameters                 |        description         |
-|:-------------------:|:------------------------------------------:|:--------------------------:|
+| :-----------------: | :----------------------------------------: | :------------------------: |
 |   createHeadings    |           { lines: lines value }           | create titles or subtitles |
 |  createParagraphe   |           { lines: lines value }           |     create paragraphe      |
 |   createListItems   |           { lines: lines value }           |     create list items      |
 |  createOrderedList  | { lines: lines value, index: index value } |    create ordered list     |
 | createUnorderedList | { lines: lines value, index: index value } |   create unordered list    |
 
-
 ### 2.6 Layouts
 
 Load content written in markdown and convert it to HTML elements.
 
 |      Name      | Paramètres |                                   Description                                    |
-|:--------------:|:----------:|:--------------------------------------------------------------------------------:|
+| :------------: | :--------: | :------------------------------------------------------------------------------: |
 | RendererLayout |    NONE    | Contains our library that layout can load markdown and read it into html element |
 
 ### 2.7 Components
@@ -123,7 +123,7 @@ Load content written in markdown and convert it to HTML elements.
 Allow you to write markdown and transform it into HTML, with features such as changing themes and integrating into a navigation bar.
 
 |       name        |                                                                                                          props                                                                                                           |                                       description                                       |
-|:-----------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------:|
+| :---------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
 |      Button       |                                                                                    { label: Button value, onClick: Button callback }                                                                                     | This component is for adding button inside navbar modules and change the markdown value |
 |       Form        | {backgroundColor: Value of theme.backgroundColor, textColor: Value of theme.textColor, linkColor: Value of theme.linkColor, codeBackgroundColor: Value of theme.backgroundColor, toggleTheme: callback for change theme} |        This component change the theme of our library for select specific theme         |
 | MarkdownComponent |             {val: Value of markdown, setMarkdown: CallBack for change the markdown variable of our useMarkdown(), setHtml: CallBack for change the html variable of our useMarkdown(), html: Value of html}              |                              This component write markdown                              |
@@ -132,7 +132,7 @@ Allow you to write markdown and transform it into HTML, with features such as ch
 ## 3. Next features
 
 |                      New features                      | Versions |
-|:------------------------------------------------------:|:--------:|
+| :----------------------------------------------------: | :------: |
 |                     Convert Emoji                      |  1.2.0   |
 |        Convert style markdown to style element         |  1.2.0   |
 | Convert blockquote markdown to blockquote html element |  1.2.0   |
@@ -140,6 +140,6 @@ Allow you to write markdown and transform it into HTML, with features such as ch
 ## 4. Versioning
 
 | Versions |   Status    |
-|:--------:|:-----------:|
+| :------: | :---------: |
 |  1.1.0   |   FINISH    |
 |  1.2.0   | IN PROGRESS |

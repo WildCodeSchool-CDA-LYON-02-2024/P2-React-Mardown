@@ -1,0 +1,18 @@
+.buttons {
+  background-color: #ffffff;
+  font-family: var(--default-font-family);
+  color: #000000;
+  width: 7%;
+  border-radius: 30px;
+  font-size: 1.15rem;
+  text-align: center;
+  height: 40px;
+  font-weight: 700;
+  &:last-child {
+    font-size: 1.45rem;
+    font-weight: bolder;
+  }
+  &:nth-last-child(2) {
+    font-style: italic;
+  }
+}

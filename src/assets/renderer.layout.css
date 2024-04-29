@@ -8,7 +8,7 @@
 	/* CONTAINER NAV BUTTONS */
 	.containerNavButtons {
 		width: calc(80% - 15px);
-		height: 80px;
+		height: 160px;
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;

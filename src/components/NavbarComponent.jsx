@@ -1,16 +1,12 @@
-import { Button } from "./Button.jsx";
-import Config from "../config/index.jsx";
+import {ListsLayouts} from "../layouts/ListsLayouts.jsx";
 
-export function NavbarComponent({markdown, setMarkdown}) {
+export function NavbarComponent({ markdownRef, markdown, setMarkdown }) {
     const handleChange = () => {
         console.log(markdown);
     }
     return(
         <>
-            {
-                Config.htmlElement.map(
-                    (element) => <Button key={element.id} label={element.htmlAttributes} onClick={() => handleChange()} />)
-            }
+            <ListsLayouts mdRef={markdownRef} markdown={markdown} setMarkdown={(e) => setMarkdown(e) }/>
         </>
     );
 }

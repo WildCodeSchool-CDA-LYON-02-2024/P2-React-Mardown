@@ -1,0 +1,14 @@
+.containerButtonList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .containerList {
+        width: 250px;
+        height: 125px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+}

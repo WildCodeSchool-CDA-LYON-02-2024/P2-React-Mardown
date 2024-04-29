@@ -6,10 +6,11 @@ import '../assets/lists.layout.css';
  */
 export function ListsLayouts({mdRef, markdown, setMarkdown}) {
     const [activeList, setActiveList] = useState(false);
+    const [nbOrdered, setNbOrdered] = useState(1);
     const isEmptyMarkdown = () => markdown === '';
     const handleListChange = (e) => {
         console.log(e);
-        isEmptyMarkdown() ? setMarkdown(e) : setMarkdown(markdown + '\n\n' + e);
+        isEmptyMarkdown() ? setMarkdown(e) : setMarkdown(markdown + '\n' + e);
         mdRef?.current.focus();
     }
     return (
@@ -23,7 +24,10 @@ export function ListsLayouts({mdRef, markdown, setMarkdown}) {
                             <Button label="Unordered" onClick={ () => handleListChange('- ') }/>
                         </div>
                         <div>
-                            <Button label="Ordered" onClick={ () => handleListChange('1. ') }/>
+                            <Button label="Ordered" onClick={ () => {
+                                setNbOrdered(nbOrdered + 1);
+                                handleListChange(nbOrdered + '. ')
+                            } }/>
                         </div>
                     </div>
                     :

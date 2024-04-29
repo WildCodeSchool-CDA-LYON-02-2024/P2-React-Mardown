@@ -3,8 +3,7 @@ import Config from "../config/index.jsx";
 
 export function NavbarComponent({ markdown, setMarkdown }) {
   const handleButtonClick = (htmlAttributes) => {
-    const newMarkdown = `[${htmlAttributes}](https://example.com/${htmlAttributes})`;
-    setMarkdown(newMarkdown);
+    setMarkdown(markdown);
   };
   return (
     <>

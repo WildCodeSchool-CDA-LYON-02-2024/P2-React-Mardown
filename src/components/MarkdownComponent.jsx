@@ -5,10 +5,15 @@ import markdownToHtml from "../services/markdownToHtml.js";
 
 export function MarkdownComponent({ markdown, setMarkdown, setHtml, html }) {
   const { theme } = useTheme();
+
   useEffect(() => {
     setHtml(markdownToHtml(markdown));
+  }, [markdown]);
+
+  useEffect(() => {
     console.log(html);
-  }, [markdown, html]);
+  }, [html]);
+
   return (
     <textarea
       style={{ backgroundColor: theme.backgroundColor, color: theme.textColor }}

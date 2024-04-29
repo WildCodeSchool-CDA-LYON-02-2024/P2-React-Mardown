@@ -6,10 +6,9 @@ import "../assets/button.css";
  */
 export const Button = ({ label, onClick }) => {
   return (
-    <button
-      type="button"
-      className='buttons'
-      onClick={ onClick }> { label }</button>
+    <button type="button" className="buttons" onClick={onClick}>
+      {label}
+    </button>
   );
 };
 

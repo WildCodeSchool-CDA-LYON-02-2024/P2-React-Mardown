@@ -26,14 +26,14 @@ export function createHeadings(lines) {
 export function createLink(lines) {
   let link = "";
 
-  lines.map(line => {
+  lines.map((line) => {
     const regexMatchLink = line.match(/\[(.*?)\\]\((.*?)\)/);
     if (regexMatchLink) {
       const linkText = regexMatchLink[1];
       const url = regexMatchLink[2];
       link = `<a href="${url}">${linkText}</a>`;
-    } else return link = line;
-  })
+    } else return (link = line);
+  });
   return link;
 }
 
@@ -56,11 +56,10 @@ export function createUnorderedList(lines, index) {
 
   while (
     i < lines.length &&
-    (
-        lines[i].startsWith("- ") ||
-        lines[i].startsWith("-") ||
-        lines[i].startsWith("* ") ||
-        lines[i].startsWith("+ "))
+    (lines[i].startsWith("- ") ||
+      lines[i].startsWith("-") ||
+      lines[i].startsWith("* ") ||
+      lines[i].startsWith("+ "))
   ) {
     const line = lines[i].replace(/^[-*]\s/, "").trim();
     listLines.push(line);

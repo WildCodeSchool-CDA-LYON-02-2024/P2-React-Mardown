@@ -1,7 +1,6 @@
 import "./App.css";
 import { RendererLayout } from "./layouts/RendererLayout.jsx";
-function App() {
+
+export default function App() {
   return <RendererLayout />;
 }
-
-export default App;

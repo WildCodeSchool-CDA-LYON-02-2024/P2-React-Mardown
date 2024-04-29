@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   /* CONTAINER NAV BUTTONS */
   .containerNavButtons {
     width: calc(80% - 15px);
@@ -14,6 +15,7 @@
     align-items: center;
     padding-left: 15px;
   }
+
   /* CONTAINER MARKDOWN TO HTML */
   .containerMarkdownHtml {
     width: 80%;

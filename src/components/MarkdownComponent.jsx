@@ -11,7 +11,6 @@ export function MarkdownComponent({ markdown, setMarkdown, setHtml, html }) {
   }, [markdown]);
 
   useEffect(() => {
-    console.log(html);
   }, [html]);
 
   return (

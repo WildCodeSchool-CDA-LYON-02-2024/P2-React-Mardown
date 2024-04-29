@@ -24,17 +24,14 @@ export function createHeadings(lines) {
 }
 
 export function createLink(lines) {
-  let link = "";
-
-  lines.map((line) => {
-    const regexMatchLink = line.match(/\[(.*?)\\]\((.*?)\)/);
+  return lines.map((line) => {
+    const regexMatchLink = line.match(/\[(.*?)\]\((.*?)\)/);
     if (regexMatchLink) {
       const linkText = regexMatchLink[1];
       const url = regexMatchLink[2];
-      link = `<a href="${url}">${linkText}</a>`;
-    } else return (link = line);
+      return `<a href="${url}">${linkText}</a>`;
+    } else return line;
   });
-  return link;
 }
 
 export function createParagraph(lines) {
@@ -49,8 +46,6 @@ export function createParagraph(lines) {
 
 export function createUnorderedList(lines, index) {
   let newElement = "<ul>";
-  console.log(index, "in UL");
-  // console.log("LINES", lines);
   let listLines = [];
   let i = index;
 
@@ -78,8 +73,6 @@ export function createUnorderedList(lines, index) {
 
 export function createOrderedList(lines, index) {
   let newElement = "<ol>";
-  //console.log("LINES", lines);
-  console.log(index, "in OL");
 
   let listLines = [];
   let i = index;

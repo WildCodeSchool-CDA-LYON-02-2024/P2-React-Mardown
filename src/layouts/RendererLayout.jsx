@@ -5,22 +5,19 @@ import { useMarkdown } from "../hooks/useMarkdown.jsx";
 import parse from "html-react-parser";
 
 export function RendererLayout() {
-  const { markdown, setMarkdown, setHtml, html } = useMarkdown();
+  const { markdown, setMarkdown, html, setHtml } = useMarkdown();
   return (
     <div className="containerLib">
       <div className="containerNavButtons">
-        <NavbarComponent
-          markdown={markdown}
-          setMarkdown={(e) => setMarkdown(e)}
-        />
+        <NavbarComponent markdown={markdown} setMarkdown={setMarkdown} />
       </div>
       <div className="containerMarkdownHtml">
         <div>
           <MarkdownComponent
+            markdown={markdown}
+            setMarkdown={setMarkdown}
             html={html}
-            setMarkdown={(e) => setMarkdown(e)}
-            val={markdown}
-            setHtml={(e) => setHtml(e)}
+            setHtml={setHtml}
           />
         </div>
         <div className="overflow">{parse(html)}</div>

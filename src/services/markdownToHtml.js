@@ -62,20 +62,20 @@ const markdownToHtml = (markdown) => {
   return html;
 };
 
-/**
- * TEST Links STARTS
- */
-const link = "[Link text Here](https://link-url-here.org)";
-const notLink = "[Link text Here] (https://link-url-here.org)";
-console.log("link", markdownToHtml(link));
-console.log("notLink", markdownToHtml(notLink));
-/**
- * TEST Links ENDS
- */
+// /**
+//  * TEST Links STARTS
+//  */
+// const link = "[Link text Here](https://link-url-here.org)";
+// const notLink = "[Link text Here] (https://link-url-here.org)";
+// console.log("link", markdownToHtml(link));
+// console.log("notLink", markdownToHtml(notLink));
+// /**
+//  * TEST Links ENDS
+//  */
 
-const text =
-  "###### tatatatata totototo\n\n* hksdgksdgfkhsdgfksdgfk\n* kffkdjglfdgjdfl\n* hkdsghdsgfhk\ntatatatata# totot\n\n1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk\ngdfgsdjhdfgjfdjh\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg";
-
-console.log(markdownToHtml(text));
+// const text =
+//   "###### tatatatata totototo\n\n* hksdgksdgfkhsdgfksdgfk\n* kffkdjglfdgjdfl\n* hkdsghdsgfhk\ntatatatata# totot\n\n1. hksdgksdgfkhsdgfksdgfk\n2. kffkdjglfdgjdfl\n3. hkdsghdsgfhk\ngdfgsdjhdfgjfdjh\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg\n* gffdgfdgfdgfg";
+//
+// console.log(markdownToHtml(text));
 
 export default markdownToHtml;

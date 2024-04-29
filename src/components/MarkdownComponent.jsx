@@ -3,17 +3,17 @@ import { useTheme } from "../hooks/useTheme.jsx";
 import "../assets/markdown.component.css";
 import markdownToHtml from "../services/markdownToHtml.js";
 
-export function MarkdownComponent({ val, setMarkdown, setHtml, html }) {
+export function MarkdownComponent({ markdown, setMarkdown, setHtml, html }) {
   const { theme } = useTheme();
   useEffect(() => {
-    setHtml(markdownToHtml(val));
+    setHtml(markdownToHtml(markdown));
     console.log(html);
-  }, [val, html]);
+  }, [markdown, html]);
   return (
     <textarea
       style={{ backgroundColor: theme.backgroundColor, color: theme.textColor }}
       onChange={(e) => setMarkdown(e.target.value)}
-      value={val}
+      value={markdown}
     ></textarea>
   );
 }

@@ -2,8 +2,9 @@ import { Button } from "./Button.jsx";
 import Config from "../config/index.jsx";
 
 export function NavbarComponent({ markdown, setMarkdown }) {
-  const handleChange = () => {
-    console.log(markdown);
+  const handleButtonClick = (htmlAttributes) => {
+    const newMarkdown = `[${htmlAttributes}](https://example.com/${htmlAttributes})`;
+    setMarkdown(newMarkdown);
   };
   return (
     <>
@@ -11,7 +12,7 @@ export function NavbarComponent({ markdown, setMarkdown }) {
         <Button
           key={element.id}
           label={element.htmlAttributes}
-          onClick={() => handleChange()}
+          onClick={() => handleButtonClick(element.htmlAttributes)}
         />
       ))}
     </>

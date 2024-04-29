@@ -1,16 +1,12 @@
 // import PropTypes from "prop-types";
 import "../assets/button.css";
 import { useState } from "react";
-import markdownToHtml from "../services/markdownToHtml.js";
+import { markdownToHtml } from "../services/markdownToHtml.js";
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = ({ label, markdownContent }) => {
   const [renderedHtml, setRenderedHtml] = useState("");
 
   const handleClick = () => {
-    // Convert markdown to HTML when the button is clicked
     const html = markdownToHtml(markdownContent);
     setRenderedHtml(html);
   };

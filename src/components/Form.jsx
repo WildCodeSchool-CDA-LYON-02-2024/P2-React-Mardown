@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Config from "../config/index.jsx";
 
 /**
- * This form is used for personalize specific theme
+ * This form is used to personalize specific theme
  */
 export function Form({
   backgroundColor,
@@ -58,13 +58,9 @@ export function Form({
 }
 
 Form.propTypes = {
-  /** Markdown background color */
   backgroundColor: PropTypes.string.isRequired,
-  /** Markdown text color */
   textColor: PropTypes.string.isRequired,
-  /** Color of links in Markdown */
   linkColor: PropTypes.string.isRequired,
-  /** Code background color in Markdown */
   codeBackgroundColor: PropTypes.string.isRequired,
 };
 

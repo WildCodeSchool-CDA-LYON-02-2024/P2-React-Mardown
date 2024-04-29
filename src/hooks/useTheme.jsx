@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "../constants/ThemeContext.jsx";
-import Config from "../config/index.jsx";
+import { Config } from "../config/index.jsx";
 
 export function useTheme() {
   const { theme, toggleTheme } = useContext(ThemeContext);

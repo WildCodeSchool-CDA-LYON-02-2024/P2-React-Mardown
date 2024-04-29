@@ -1,7 +1,13 @@
 {
   "name": "@j0j0/iron-markdown",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
+  "license": "MIT",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-React-Markdown"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

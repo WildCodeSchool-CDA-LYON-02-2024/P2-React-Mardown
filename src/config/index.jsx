@@ -56,7 +56,12 @@ const Config = {
       htmlAttributes: "B",
       val: "**",
     },
-  ],
+    {
+      id: 11,
+      htmlAttributes: "a",
+      val: "[",
+    }
+  ]
 };
 
 export default Config;

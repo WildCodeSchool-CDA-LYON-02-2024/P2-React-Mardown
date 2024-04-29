@@ -1,13 +1,7 @@
-import "./App.css";
-import RenderComponent from "./components/RenderComponent";
-
+import './App.css';
+import { RendererLayout } from "./layouts/RendererLayout.jsx";
 function App() {
-
-  return (
-    <>
-     <RenderComponent />
-    </>
-  );
+  return <RendererLayout />;
 }
 
-export default App;
+export default App

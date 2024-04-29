@@ -18,7 +18,3 @@ export function getLine(markdown) {
 
   return lines;
 }
-// const text =
-//   "## Fournir une documentation\n\n claire et des exemples de code pour\nesfiuhsiufhsdigfyqgfiyqgfiygiydgqfiqgdiyqfgqiudfgiqgdfiqudgfiudqg\n\n\n\n de votre bibliothèque.\n\nFournir un site d'exemple et un StoryBook pourudyugqsduygqsuyfgsdyufguydfg\ndfsdfdsdfsfsfsdsf \n\nprésenter les fonctionnalités de la bibliothèque.";
-
-// console.log(getLine(text));

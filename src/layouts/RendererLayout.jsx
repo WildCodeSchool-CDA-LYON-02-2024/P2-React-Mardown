@@ -3,6 +3,7 @@ import { MarkdownComponent } from "../components/MarkdownComponent.jsx";
 import "../assets/renderer.layout.css";
 import { useMarkdown } from "../hooks/useMarkdown.jsx";
 import parse from "html-react-parser";
+import RenderComponent from "../components/RenderComponent.jsx";
 
 export function RendererLayout() {
   const { markdown, setMarkdown, html, setHtml } = useMarkdown();
@@ -21,8 +22,7 @@ export function RendererLayout() {
           />
         </div>
         <div className="overflow">
-          {/*{html}*/}
-          {parse(html)}
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </div>

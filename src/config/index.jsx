@@ -1,4 +1,4 @@
-const Config = {
+export const Config = {
   defaultTheme: {
     backgroundColor: "#FFF",
     textColor: "#000",
@@ -60,8 +60,6 @@ const Config = {
       id: 11,
       htmlAttributes: "a",
       val: "[",
-    }
-  ]
+    },
+  ],
 };
-
-export default Config;

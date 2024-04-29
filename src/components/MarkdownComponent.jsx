@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTheme } from "../hooks/useTheme.jsx";
 import "../assets/markdown.component.css";
-import markdownToHtml from "../services/markdownToHtml.js";
+import { markdownToHtml } from "../services/markdownToHtml.js";
 
 export function MarkdownComponent({ markdown, setMarkdown, setHtml, html }) {
   const { theme } = useTheme();

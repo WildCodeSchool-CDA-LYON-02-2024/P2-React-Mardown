@@ -7,4 +7,7 @@
 node_modules/
 *-lock.json
 
+# storybook
+.storybook/
+src/stories/
 *storybook.log

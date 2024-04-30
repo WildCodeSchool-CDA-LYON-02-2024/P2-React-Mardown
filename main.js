@@ -9,9 +9,9 @@ import {
 import { Config } from "./src/config/index.jsx";
 import { markdownToHtml } from "./src/services/markdownToHtml.js";
 import { useMarkdown } from "./src/hooks/useMarkdown.jsx";
-import MarkdownComponent from "./src/components/MarkdownComponent.jsx";
-import RendererLayout from "./src/layouts/RendererLayout.jsx";
-import NavbarComponent from "./src/components/NavbarComponent.jsx";
+import { MarkdownComponent } from "./src/components/MarkdownComponent.jsx";
+import { RendererLayout } from "./src/layouts/RendererLayout.jsx";
+import { NavbarComponent } from "./src/components/NavbarComponent.jsx";
 import { useTheme } from "./src/hooks/useTheme.jsx";
 
 export {

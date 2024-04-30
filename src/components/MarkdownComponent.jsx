@@ -3,12 +3,18 @@ import { useTheme } from "../hooks/useTheme.jsx";
 import "../assets/markdown.component.css";
 import { markdownToHtml } from "../services/markdownToHtml.js";
 
+/**
+ * Props not provided: markdown, setMarkdown, setHtml, html
+ */
 export function MarkdownComponent({ markdown, setMarkdown, setHtml, html }) {
   const { theme } = useTheme();
 
+  /**
+   * useEffect unused
+   */
   useEffect(() => {
     setHtml(markdownToHtml(markdown));
-  }, [markdown]);
+  }, [markdown, setHtml]);
 
   useEffect(() => {}, [html]);
 

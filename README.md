@@ -71,7 +71,9 @@ export function RendererLayout() {
   );
 }
 ```
+
 ![Example](./src/assets/exemple-input-output.png)
+
 ### 2.1 Input Markdown Component
 
 The input component consists of the following:

@@ -11,3 +11,12 @@ node_modules/
 .storybook/
 src/stories/
 *storybook.log
+
+# config
+.eslintrc.cjs
+.prettierrc
+vite.config.js
+
+# miscellaneous
+main.js
+index.html

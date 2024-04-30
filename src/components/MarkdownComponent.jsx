@@ -10,8 +10,7 @@ export function MarkdownComponent({ markdown, setMarkdown, setHtml, html }) {
     setHtml(markdownToHtml(markdown));
   }, [markdown]);
 
-  useEffect(() => {
-  }, [html]);
+  useEffect(() => {}, [html]);
 
   return (
     <textarea
